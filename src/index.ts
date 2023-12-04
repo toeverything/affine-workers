@@ -28,7 +28,6 @@ const ALLOWED_ORIGINS = [
 export default {
 	async fetch(request: Request): Promise<Response> {
 		const origin = request.headers.get('Origin');
-		console.log(origin);
 
 		if (request.method === 'OPTIONS') {
 			return handleOptionsRequest(request);
