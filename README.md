@@ -33,5 +33,5 @@ const response = await fetch(
 		}),
 	},
 );
-const data: LinkPreviewResponseData = await response.json();
+const data = await response.json();
 ```
