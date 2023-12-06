@@ -1,8 +1,7 @@
 import { IRequest } from 'itty-router';
-import { getDomain } from 'tldts';
 
 import { RequestData, ResponseData } from './types';
-import { log } from './utils';
+import { fixUrl, log } from './utils';
 
 const ALLOWED_ORIGINS = [
 	'http://localhost:5173',
@@ -14,20 +13,6 @@ const ALLOWED_ORIGINS = [
 	'https://insider.affine.pro',
 	'https://affine.fail',
 ];
-
-function fixUrl(url: string): string | null {
-	if (typeof url === 'string') {
-		if (/^https?:\/\//.test(url)) {
-			try {
-				new URL(url);
-				return url;
-			} catch (_) {}
-		} else if (getDomain(url)) {
-			return 'http://' + url;
-		}
-	}
-	return null;
-}
 
 export async function linkPreview(request: IRequest): Promise<Response> {
 	const origin = request.headers.get('Origin');
