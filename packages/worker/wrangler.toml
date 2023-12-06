@@ -1,7 +1,7 @@
 name = "affine-worker"
 main = "src/index.ts"
 compatibility_date = "2023-11-21"
-workers_dev = false
+workers_dev = true
 minify = true
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)

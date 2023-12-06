@@ -1,8 +1,8 @@
-import { AFFiNEWorker } from './affine';
-import { DomainRouterBuilder, domainRoutersHandler } from './router';
-import { Env } from './types';
+import { AFFiNEWorker } from './affine.js';
+import { DomainRouterBuilder, domainRoutersHandler } from './router.js';
+import type { Env } from './types.js';
 
-const DOMAIN = 'cdn.affine.systems';
+const DOMAIN = 'affine-worker.toeverything.workers.dev';
 
 const affine = AFFiNEWorker();
 

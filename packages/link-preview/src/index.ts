@@ -1,7 +1,7 @@
-import { IRequest } from 'itty-router';
+import { respBadRequest } from '@affine/utils';
+import type { IRequest } from 'itty-router';
 
-import { respBadRequest } from '../utils';
-import { RequestData, ResponseData } from './types';
+import type { RequestData, ResponseData } from './types';
 import { fixUrl, log } from './utils';
 
 const ALLOWED_ORIGINS = [

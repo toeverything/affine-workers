@@ -1,5 +1,5 @@
-import { DomainRouters, Env, RouterHandler } from './types';
-import { respNotFound } from './utils';
+import { respNotFound } from '@affine/utils';
+import type { DomainRouters, Env, RouterHandler } from './types';
 
 export class DomainRouterBuilder {
 	private routers: DomainRouters = {};
