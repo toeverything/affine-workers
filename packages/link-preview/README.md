@@ -20,18 +20,15 @@ interface ResponseData {
 ## Usage
 
 ```ts
-const url = 'https://github.com/toeverything/link-preview';
-const response = await fetch(
-	'https://link-preview.toeverything.workers.dev',
-	{
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			url,
-		}),
+const url = 'https://github.com/toeverything/affine-workers';
+const response = await fetch('https://affine-worker.toeverything.workers.dev/api/linkPreview', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
 	},
-);
+	body: JSON.stringify({
+		url,
+	}),
+});
 const data = await response.json();
 ```

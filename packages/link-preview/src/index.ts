@@ -17,13 +17,24 @@ const ALLOWED_ORIGINS = [
 
 export async function linkPreview(request: IRequest): Promise<Response> {
 	const origin = request.headers.get('Origin');
+	if (!origin) {
+		return respBadRequest('Missing Origin header');
+	}
+
 	log('Received request', 'INFO', { origin, method: request.method });
 
-	const requestBody: RequestData = await request.json();
+	const requestBody = await request.json<RequestData>().catch(() => {
+		log('Invalid request body', 'ERROR', { origin });
+		return null;
+	});
+	if (!requestBody) {
+		return respBadRequest('Invalid request body', { allowOrigin: origin });
+	}
+
 	const targetURL = fixUrl(requestBody.url);
 	if (!targetURL) {
 		log('Invalid URL', 'ERROR', { origin, url: requestBody.url });
-		return respBadRequest('Invalid URL');
+		return respBadRequest('Invalid URL', { allowOrigin: origin });
 	}
 
 	log('Processing request', 'INFO', { origin, url: targetURL });
@@ -122,7 +133,6 @@ function getCorsHeaders(origin: string | null): { [key: string]: string } {
 	if (origin && ALLOWED_ORIGINS.includes(origin)) {
 		return {
 			'Access-Control-Allow-Origin': origin,
-			'Access-Control-Allow-Credentials': 'true',
 		};
 	} else {
 		return {};

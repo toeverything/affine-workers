@@ -5,4 +5,3 @@ export interface Env {
 export type RouterHandler = (request: Request, env: Env, ctx: ExecutionContext) => Promise<Response>;
 export type HostHandlers = Record<string, RouterHandler>;
 export type DomainRouters = Record<string, HostHandlers>;
-
