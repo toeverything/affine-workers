@@ -2,6 +2,7 @@ import { Router } from 'itty-router';
 
 import { linkPreview, linkPreviewOption } from './link-preview';
 import { Env, RouterHandler } from '../types';
+import { respNotFound } from '../utils';
 
 export function AFFiNEWorker(): RouterHandler {
 	const router = Router();
@@ -9,15 +10,7 @@ export function AFFiNEWorker(): RouterHandler {
 	router.options('/api/linkPreview', linkPreviewOption);
 	router.post('/api/linkPreview', linkPreview);
 
-	router.get('/api/*', () => {
-		return new Response(JSON.stringify({ msg: '404, not found!' }), {
-			headers: {
-				'content-type': 'application/json;charset=UTF-8',
-			},
-			status: 404,
-		});
-	});
-
+	router.get('/api/*', () => respNotFound());
 	router.all('*', () => new Response('404, not found!', { status: 404 }));
 
 	return (request: Request, env: Env, ctx: ExecutionContext) => {

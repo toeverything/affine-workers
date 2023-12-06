@@ -1,4 +1,5 @@
 import { DomainRouters, Env, RouterHandler } from './types';
+import { respNotFound } from './utils';
 
 export class DomainRouterBuilder {
 	private routers: DomainRouters = {};
@@ -31,5 +32,5 @@ export async function domainRoutersHandler(routers: DomainRouters, request: Requ
 			}
 		}
 	}
-	return new Response('ok', { status: 200 });
+	return respNotFound();
 }

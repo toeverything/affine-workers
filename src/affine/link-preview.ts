@@ -1,5 +1,6 @@
 import { IRequest } from 'itty-router';
 
+import { respBadRequest } from '../utils';
 import { RequestData, ResponseData } from './types';
 import { fixUrl, log } from './utils';
 
@@ -22,10 +23,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 	const targetURL = fixUrl(requestBody.url);
 	if (!targetURL) {
 		log('Invalid URL', 'ERROR', { origin, url: requestBody.url });
-		return new Response(null, {
-			status: 400,
-			statusText: 'Bad Request',
-		});
+		return respBadRequest('Invalid URL');
 	}
 
 	log('Processing request', 'INFO', { origin, url: targetURL });
