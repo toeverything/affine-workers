@@ -17,6 +17,7 @@ interface ResponseData {
 
 const ALLOWED_ORIGINS = [
 	'http://localhost:5173',
+	'http://localhost:8080',
 	'https://try-blocksuite.vercel.app',
 	'https://blocksuite-toeverything.vercel.app',
 	'https://affine.pro',
