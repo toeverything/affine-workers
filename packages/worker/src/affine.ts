@@ -1,10 +1,10 @@
 import { linkPreview, linkPreviewOption } from '@affine/link-preview';
-import { respNotFound } from '@affine/utils';
+import { respNotFound, type RouterHandler } from '@affine/utils';
 import { Router } from 'itty-router';
 
-import type { Env, RouterHandler } from './types';
+import type { Env } from './types';
 
-export function AFFiNEWorker(): RouterHandler {
+export function AFFiNEWorker(): RouterHandler<Env> {
 	const router = Router();
 
 	router.options('/api/linkPreview', linkPreviewOption);
