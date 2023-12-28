@@ -1,3 +1,3 @@
 export interface Env {
-	CDN: R2Bucket;
+	Database: D1Database;
 }
