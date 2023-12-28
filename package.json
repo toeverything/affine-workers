@@ -8,11 +8,19 @@
 	"scripts": {
 		"dev": "pnpm --filter @affine/worker dev",
 		"deploy": "pnpm run --filter @affine/worker deploy",
-		"format": "pnpm prettier --write ."
+		"format": "pnpm prettier --write .",
+		"create-d1": "wrangler d1 create affine-worker",
+		"create-d1-schema": "pnpm run -r migrate:online"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20231121.0",
-		"prettier": "3.1.0",
-		"typescript": "^5.3.2"
+		"@cloudflare/workers-types": "^4.20231218.0",
+		"better-sqlite3": "^8.7.0",
+		"prettier": "3.1.1",
+		"typescript": "^5.3.3"
+	},
+	"pnpm": {
+		"overrides": {
+			"side-channel": "npm:@nolyfill/side-channel@latest"
+		}
 	}
 }
