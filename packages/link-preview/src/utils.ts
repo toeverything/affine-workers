@@ -1,4 +1,4 @@
-import { getDomain } from 'tldts';
+import { getDomain, getSubdomain } from 'tldts';
 
 export function fixUrl(url: string): string | null {
 	if (typeof url !== 'string') {
@@ -18,7 +18,7 @@ export function fixUrl(url: string): string | null {
 		if (
 			['http:', 'https:'].includes(parsed.protocol) &&
 			// check hostname is a valid domain
-			getDomain(url) === parsed.hostname
+			`${getSubdomain(url)}.${getDomain(url)}` === parsed.hostname
 		) {
 			return parsed.toString();
 		}
