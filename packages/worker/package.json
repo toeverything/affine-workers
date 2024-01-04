@@ -11,6 +11,7 @@
 		"start": "wrangler dev"
 	},
 	"devDependencies": {
+		"@affine/image-proxy": "workspace:*",
 		"@affine/link-preview": "workspace:*",
 		"@affine/utils": "workspace:*",
 		"@cloudflare/workers-types": "^4.20231218.0",
