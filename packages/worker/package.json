@@ -6,7 +6,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"deploy": "wrangler deploy",
+		"deploy:dev": "wrangler deploy -c wrangler-dev.toml",
+		"deploy:prod": "wrangler deploy -c wrangler-prod.toml",
 		"dev": "wrangler dev",
 		"start": "wrangler dev"
 	},

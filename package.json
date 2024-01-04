@@ -7,7 +7,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "pnpm --filter @affine/worker dev",
-		"deploy": "pnpm run --filter @affine/worker deploy",
+		"deploy:dev": "pnpm run --filter @affine/worker deploy:dev",
+		"deploy:prod": "pnpm run --filter @affine/worker deploy:prod",
 		"format": "pnpm prettier --write .",
 		"create-d1": "wrangler d1 create affine-worker",
 		"create-d1-schema": "pnpm run -r migrate:online"
