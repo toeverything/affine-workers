@@ -15,10 +15,14 @@ export function fixUrl(url: string): string | null {
 	try {
 		const parsed = new URL(fullUrl);
 
+		const subDomain = getSubdomain(url);
+		const mainDomain = getDomain(url);
+		const fullDomain = subDomain ? `${subDomain}.${mainDomain}` : mainDomain;
+
 		if (
 			['http:', 'https:'].includes(parsed.protocol) &&
 			// check hostname is a valid domain
-			`${getSubdomain(url)}.${getDomain(url)}` === parsed.hostname
+			fullDomain === parsed.hostname
 		) {
 			return parsed.toString();
 		}
