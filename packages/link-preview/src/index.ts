@@ -59,7 +59,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 			const rewriter = new HTMLRewriter()
 				.on('meta', {
 					element(element) {
-						const property = element.getAttribute('property');
+						const property = element.getAttribute('property') ?? element.getAttribute('name');
 						const content = element.getAttribute('content');
 						if (property && content) {
 							switch (property.toLowerCase()) {
@@ -81,6 +81,10 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 								case 'og:type':
 									res.mediaType = content;
 									break;
+								case 'description':
+									if (!res.description) {
+										res.description = content;
+									}
 							}
 						}
 					},
