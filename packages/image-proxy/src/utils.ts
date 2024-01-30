@@ -1,6 +1,12 @@
 type OriginRule = string | RegExp | ((origin: string) => boolean);
 
-const ALLOW_ORIGIN: OriginRule[] = ['https://affine.pro', 'https://app.affine.pro', 'https://insider.affine.pro', 'https://affine.fail'];
+const ALLOW_ORIGIN: OriginRule[] = [
+	'https://affine.pro',
+	'https://app.affine.pro',
+	'https://insider.affine.pro',
+	'https://affine.fail',
+	/https?:\/\/localhost(:\d+)/,
+];
 
 function isString(s: OriginRule): s is string {
 	return typeof s === 'string' || s instanceof String;
@@ -20,4 +26,9 @@ export function isOriginAllowed(origin: string, allowedOrigin: OriginRule | Orig
 		return allowedOrigin.test(origin);
 	}
 	return allowedOrigin(origin);
+}
+
+export function isRefererAllowed(referer: string, allowedOrigin: OriginRule | OriginRule[] = ALLOW_ORIGIN) {
+	const origin = new URL(referer).origin;
+	return isOriginAllowed(origin, allowedOrigin);
 }

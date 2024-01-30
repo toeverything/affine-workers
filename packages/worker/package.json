@@ -12,6 +12,7 @@
 		"start": "wrangler dev"
 	},
 	"devDependencies": {
+		"@affine/image-optimize": "workspace:*",
 		"@affine/image-proxy": "workspace:*",
 		"@affine/link-preview": "workspace:*",
 		"@affine/utils": "workspace:*",

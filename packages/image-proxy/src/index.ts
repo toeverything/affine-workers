@@ -1,9 +1,9 @@
 import { respBadRequest, log, respNotFound } from '@affine/utils';
 import type { IRequest } from 'itty-router';
-import { isOriginAllowed } from './utils';
+import { isOriginAllowed, isRefererAllowed } from './utils';
 
 export async function imageProxy(request: IRequest) {
-	if (!isOriginAllowed(request.headers.get('Origin') ?? '')) {
+	if (!isOriginAllowed(request.headers.get('Origin') ?? '') && !isRefererAllowed(request.headers.get('Referer') ?? '')) {
 		log('Invalid Origin', 'ERROR', { origin: request.headers.get('Origin') });
 		return respNotFound();
 	}
