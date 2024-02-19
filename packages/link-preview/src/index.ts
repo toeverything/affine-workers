@@ -1,8 +1,7 @@
-import { respBadRequest, log } from '@affine/utils';
+import { fixUrl, log, respBadRequest } from '@affine/utils';
 import type { IRequest } from 'itty-router';
 
 import type { RequestData, ResponseData } from './types';
-import { fixUrl } from './utils';
 
 const ALLOWED_ORIGINS = [
 	'http://localhost:5173',

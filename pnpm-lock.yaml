@@ -24,43 +24,7 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/image-optimize:
-    devDependencies:
-      '@affine/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@cloudflare/workers-types':
-        specifier: ^4.20231218.0
-        version: 4.20231218.0
-      '@types/node':
-        specifier: ^20.10.5
-        version: 20.10.5
-      itty-router:
-        specifier: 4.0.25
-        version: 4.0.25
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-
   packages/image-proxy:
-    devDependencies:
-      '@affine/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@cloudflare/workers-types':
-        specifier: ^4.20231218.0
-        version: 4.20231218.0
-      '@types/node':
-        specifier: ^20.10.5
-        version: 20.10.5
-      itty-router:
-        specifier: 4.0.25
-        version: 4.0.25
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-
-  packages/link-preview:
     devDependencies:
       '@affine/utils':
         specifier: workspace:*
@@ -81,6 +45,24 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  packages/link-preview:
+    devDependencies:
+      '@affine/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@cloudflare/workers-types':
+        specifier: ^4.20231218.0
+        version: 4.20231218.0
+      '@types/node':
+        specifier: ^20.10.5
+        version: 20.10.5
+      itty-router:
+        specifier: 4.0.25
+        version: 4.0.25
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
   packages/utils:
     devDependencies:
       '@cloudflare/workers-types':
@@ -89,15 +71,15 @@ importers:
       '@types/node':
         specifier: ^20.10.5
         version: 20.10.5
+      tldts:
+        specifier: ^6.1.1
+        version: 6.1.1
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
 
   packages/worker:
     devDependencies:
-      '@affine/image-optimize':
-        specifier: workspace:*
-        version: link:../image-optimize
       '@affine/image-proxy':
         specifier: workspace:*
         version: link:../image-proxy

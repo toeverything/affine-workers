@@ -1,4 +1,4 @@
-import { respBadRequest, log, respNotFound } from '@affine/utils';
+import { fixUrl, log, respBadRequest, respNotFound } from '@affine/utils';
 import type { IRequest } from 'itty-router';
 import { isOriginAllowed, isRefererAllowed } from './utils';
 
@@ -12,6 +12,14 @@ export async function imageProxy(request: IRequest) {
 	const imageURL = url.searchParams.get('url');
 	if (!imageURL) {
 		return respBadRequest('Missing "url" parameter');
+	}
+
+	console.log('imageURL', imageURL);
+	const targetURL = fixUrl(imageURL);
+	console.log('targetURL', targetURL);
+	if (!targetURL) {
+		log('Invalid URL', 'ERROR', { origin, url: imageURL });
+		return respBadRequest('Invalid URL', { allowOrigin: origin });
 	}
 
 	const imageRequest = new Request(imageURL, {
