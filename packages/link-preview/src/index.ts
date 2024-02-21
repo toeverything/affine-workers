@@ -14,6 +14,15 @@ const ALLOWED_ORIGINS = [
 	'https://affine.fail',
 ];
 
+function appendUrl(url: string | null, array?: string[]) {
+	if (url) {
+		const fixedUrl = fixUrl(url);
+		if (fixedUrl) {
+			array?.push(fixedUrl);
+		}
+	}
+}
+
 export async function linkPreview(request: IRequest): Promise<Response> {
 	const origin = request.headers.get('Origin') ?? '';
 	const referer = request.headers.get('Referer') ?? '';
@@ -74,10 +83,11 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 									res.description = content;
 									break;
 								case 'og:image':
-									res.images?.push(content);
+									appendUrl(content, res.images);
+
 									break;
 								case 'og:video':
-									res.videos?.push(content);
+									appendUrl(content, res.videos);
 									break;
 								case 'og:type':
 									res.mediaType = content;
@@ -93,10 +103,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 				.on('link', {
 					element(element) {
 						if (element.getAttribute('rel') === 'icon') {
-							const href = element.getAttribute('href');
-							if (href) {
-								res.favicons?.push(href);
-							}
+							appendUrl(element.getAttribute('href'), res.favicons);
 						}
 					},
 				})
@@ -109,18 +116,12 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 				})
 				.on('img', {
 					element(element) {
-						const src = element.getAttribute('src');
-						if (src) {
-							res.images?.push(src);
-						}
+						appendUrl(element.getAttribute('src'), res.images);
 					},
 				})
 				.on('video', {
 					element(element) {
-						const src = element.getAttribute('src');
-						if (src) {
-							res.videos?.push(src);
-						}
+						appendUrl(element.getAttribute('src'), res.videos);
 					},
 				});
 
