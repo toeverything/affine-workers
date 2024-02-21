@@ -99,6 +99,29 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 							}
 						}
 					},
+				})
+				.on('title', {
+					text(text) {
+						if (!res.title) {
+							res.title = text.text;
+						}
+					},
+				})
+				.on('img', {
+					element(element) {
+						const src = element.getAttribute('src');
+						if (src) {
+							res.images?.push(src);
+						}
+					},
+				})
+				.on('video', {
+					element(element) {
+						const src = element.getAttribute('src');
+						if (src) {
+							res.videos?.push(src);
+						}
+					},
 				});
 
 			await rewriter.transform(response).text();
