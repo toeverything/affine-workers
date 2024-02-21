@@ -29,6 +29,10 @@ export function isOriginAllowed(origin: string, allowedOrigin: OriginRule | Orig
 }
 
 export function isRefererAllowed(referer: string, allowedOrigin: OriginRule | OriginRule[] = ALLOW_ORIGIN) {
-	const origin = new URL(referer).origin;
-	return isOriginAllowed(origin, allowedOrigin);
+	try {
+		const origin = new URL(referer).origin;
+		return isOriginAllowed(origin, allowedOrigin);
+	} catch (_) {
+		return false;
+	}
 }
