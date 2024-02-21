@@ -5,6 +5,7 @@ const ALLOW_ORIGIN: OriginRule[] = [
 	'https://app.affine.pro',
 	'https://insider.affine.pro',
 	'https://affine.fail',
+	'https://try-blocksuite.vercel.app',
 	/https?:\/\/localhost(:\d+)/,
 ];
 
