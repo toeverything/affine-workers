@@ -1,4 +1,4 @@
-import { fixUrl, log, respBadRequest } from '@affine/utils';
+import { fixUrl, isOriginAllowed, isRefererAllowed, log, respBadRequest } from '@affine/utils';
 import type { IRequest } from 'itty-router';
 
 import type { RequestData, ResponseData } from './types';
@@ -15,9 +15,11 @@ const ALLOWED_ORIGINS = [
 ];
 
 export async function linkPreview(request: IRequest): Promise<Response> {
-	const origin = request.headers.get('Origin');
-	if (!origin) {
-		return respBadRequest('Missing Origin header');
+	const origin = request.headers.get('Origin') ?? '';
+	const referer = request.headers.get('Referer') ?? '';
+	if (!isOriginAllowed(origin) && !isRefererAllowed(referer)) {
+		log('Invalid Origin', 'ERROR', { origin, referer });
+		return respBadRequest('Invalid header');
 	}
 
 	log('Received request', 'INFO', { origin, method: request.method });
