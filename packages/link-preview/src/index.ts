@@ -15,11 +15,11 @@ const ALLOWED_ORIGINS = [
 	'https://affine.fail',
 ];
 
-async function appendUrl(url: string | null, array?: string[], imageProxy?: (url: URL) => Promise<string>) {
+function appendUrl(url: string | null, array?: string[]) {
 	if (url) {
 		const fixedUrl = fixUrl(url);
 		if (fixedUrl) {
-			array?.push((await imageProxy?.(fixedUrl)) ?? fixedUrl.toString());
+			array?.push(fixedUrl.toString());
 		}
 	}
 }
@@ -51,8 +51,6 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 	log('Processing request', 'INFO', { origin, url: targetURL });
 
 	try {
-		const imageProxy = imageProxyBuilder(request.url);
-
 		const response: Response = await fetch(targetURL, {
 			cf: {
 				cacheTtl: 43200,
@@ -86,7 +84,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 									res.description = content;
 									break;
 								case 'og:image':
-									appendUrl(content, res.images, imageProxy);
+									appendUrl(content, res.images);
 									break;
 								case 'og:video':
 									appendUrl(content, res.videos);
@@ -118,7 +116,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 				})
 				.on('img', {
 					element(element) {
-						appendUrl(element.getAttribute('src'), res.images, imageProxy);
+						appendUrl(element.getAttribute('src'), res.images);
 					},
 				})
 				.on('video', {
@@ -128,6 +126,13 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 				});
 
 			await rewriter.transform(response).text();
+
+			if (res.images && res.images.length > 0) {
+				const imageProxy = imageProxyBuilder(request.url);
+				const images = await Promise.all(res.images.map(imageProxy));
+				res.images = images.filter((x): x is string => !!x);
+			}
+
 			log('Processed response with HTMLRewriter', 'INFO', { origin, url: response.url });
 		}
 
