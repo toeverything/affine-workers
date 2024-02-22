@@ -2,6 +2,7 @@ import { fixUrl, isOriginAllowed, isRefererAllowed, log, respBadRequest } from '
 import type { IRequest } from 'itty-router';
 
 import type { RequestData, ResponseData } from './types';
+import { imageProxyBuilder } from './auto_proxy';
 
 const ALLOWED_ORIGINS = [
 	'http://localhost:5173',
@@ -14,32 +15,12 @@ const ALLOWED_ORIGINS = [
 	'https://affine.fail',
 ];
 
-const IMAGE_PROXY = '/api/worker/image-proxy';
-
-function appendUrl(url: string | null, array?: string[], imageProxy?: (url: URL) => string) {
+async function appendUrl(url: string | null, array?: string[], imageProxy?: (url: URL) => Promise<string>) {
 	if (url) {
 		const fixedUrl = fixUrl(url);
 		if (fixedUrl) {
-			array?.push(imageProxy?.(fixedUrl) ?? fixedUrl.toString());
+			array?.push((await imageProxy?.(fixedUrl)) ?? fixedUrl.toString());
 		}
-	}
-}
-
-function imageProxyBuilder(url: string): (url: URL) => string {
-	try {
-		const proxy = new URL(url);
-		proxy.pathname = IMAGE_PROXY;
-
-		return (url) => {
-			if (url.protocol !== 'http:') {
-				return url.toString();
-			}
-
-			proxy.searchParams.set('url', url.toString());
-			return proxy.toString();
-		};
-	} catch (e) {
-		return (url) => url.toString();
 	}
 }
 
