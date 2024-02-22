@@ -7,6 +7,7 @@ const ALLOW_ORIGIN: OriginRule[] = [
 	'https://affine.fail',
 	'https://try-blocksuite.vercel.app',
 	/https?:\/\/localhost(:\d+)/,
+	/https:\/\/.*?-toeverything\.vercel\.app$/,
 ];
 
 function isString(s: OriginRule): s is string {

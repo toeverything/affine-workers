@@ -4,17 +4,6 @@ import type { IRequest } from 'itty-router';
 import type { RequestData, ResponseData } from './types';
 import { imageProxyBuilder } from './auto_proxy';
 
-const ALLOWED_ORIGINS = [
-	'http://localhost:5173',
-	'http://localhost:8080',
-	'https://try-blocksuite.vercel.app',
-	'https://blocksuite-toeverything.vercel.app',
-	'https://affine.pro',
-	'https://app.affine.pro',
-	'https://insider.affine.pro',
-	'https://affine.fail',
-];
-
 function appendUrl(url: string | null, array?: string[]) {
 	if (url) {
 		const fixedUrl = fixUrl(url);
@@ -25,9 +14,9 @@ function appendUrl(url: string | null, array?: string[]) {
 }
 
 export async function linkPreview(request: IRequest): Promise<Response> {
-	const origin = request.headers.get('Origin') ?? '';
-	const referer = request.headers.get('Referer') ?? '';
-	if (!isOriginAllowed(origin) && !isRefererAllowed(referer)) {
+	const origin = request.headers.get('Origin');
+	const referer = request.headers.get('Referer');
+	if ((origin && !isOriginAllowed(origin)) || (referer && !isRefererAllowed(referer))) {
 		log('Invalid Origin', 'ERROR', { origin, referer });
 		return respBadRequest('Invalid header');
 	}
@@ -166,7 +155,7 @@ export function linkPreviewOption(request: IRequest): Response {
 }
 
 function getCorsHeaders(origin: string | null): { [key: string]: string } {
-	if (origin && ALLOWED_ORIGINS.includes(origin)) {
+	if (origin) {
 		return {
 			'Access-Control-Allow-Origin': origin,
 		};
