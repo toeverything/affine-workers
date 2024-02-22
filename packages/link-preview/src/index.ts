@@ -14,12 +14,32 @@ const ALLOWED_ORIGINS = [
 	'https://affine.fail',
 ];
 
-function appendUrl(url: string | null, array?: string[]) {
+const IMAGE_PROXY = '/api/worker/image-proxy';
+
+function appendUrl(url: string | null, array?: string[], imageProxy?: (url: URL) => string) {
 	if (url) {
 		const fixedUrl = fixUrl(url);
 		if (fixedUrl) {
-			array?.push(fixedUrl);
+			array?.push(imageProxy?.(fixedUrl) ?? fixedUrl.toString());
 		}
+	}
+}
+
+function imageProxyBuilder(url: string): (url: URL) => string {
+	try {
+		const proxy = new URL(url);
+		proxy.pathname = IMAGE_PROXY;
+
+		return (url) => {
+			if (url.protocol !== 'http:') {
+				return url.toString();
+			}
+
+			proxy.searchParams.set('url', url.toString());
+			return proxy.toString();
+		};
+	} catch (e) {
+		return (url) => url.toString();
 	}
 }
 
@@ -50,6 +70,8 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 	log('Processing request', 'INFO', { origin, url: targetURL });
 
 	try {
+		const imageProxy = imageProxyBuilder(request.url);
+
 		const response: Response = await fetch(targetURL, {
 			cf: {
 				cacheTtl: 43200,
@@ -83,8 +105,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 									res.description = content;
 									break;
 								case 'og:image':
-									appendUrl(content, res.images);
-
+									appendUrl(content, res.images, imageProxy);
 									break;
 								case 'og:video':
 									appendUrl(content, res.videos);
@@ -116,7 +137,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 				})
 				.on('img', {
 					element(element) {
-						appendUrl(element.getAttribute('src'), res.images);
+						appendUrl(element.getAttribute('src'), res.images, imageProxy);
 					},
 				})
 				.on('video', {

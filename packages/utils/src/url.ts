@@ -1,6 +1,6 @@
 import { getDomain, getSubdomain } from 'tldts';
 
-export function fixUrl(url: string): string | null {
+export function fixUrl(url: string): URL | null {
 	if (typeof url !== 'string') {
 		return null;
 	}
@@ -24,7 +24,7 @@ export function fixUrl(url: string): string | null {
 			// check hostname is a valid domain
 			fullDomain === parsed.hostname
 		) {
-			return parsed.toString();
+			return parsed;
 		}
 	} catch (_) {}
 

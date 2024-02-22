@@ -15,15 +15,13 @@ export async function imageProxy(request: IRequest) {
 		return respBadRequest('Missing "url" parameter');
 	}
 
-	console.log('imageURL', imageURL);
 	const targetURL = fixUrl(imageURL);
-	console.log('targetURL', targetURL);
 	if (!targetURL) {
 		log('Invalid URL', 'ERROR', { origin, url: imageURL });
 		return respBadRequest('Invalid URL', { allowOrigin: origin });
 	}
 
-	const imageRequest = new Request(imageURL, {
+	const imageRequest = new Request(targetURL.toString(), {
 		method: 'GET',
 		headers: request.headers,
 	});
