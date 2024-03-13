@@ -1,4 +1,4 @@
-import { fixUrl, isOriginAllowed, isRefererAllowed, log, respBadRequest } from '@affine/utils';
+import { cloneHeader, fixUrl, isOriginAllowed, isRefererAllowed, log, respBadRequest } from '@affine/utils';
 import type { IRequest } from 'itty-router';
 
 import type { RequestData, ResponseData } from './types';
@@ -11,19 +11,6 @@ function appendUrl(url: string | null, array?: string[]) {
 			array?.push(fixedUrl.toString());
 		}
 	}
-}
-
-const headerFilters = [/^Sec-/i, /^Accept/i, /^User-Agent$/i];
-
-function cloneHeader(source: Headers) {
-	let headers: Record<string, string> = {};
-	for (const [key, value] of source.entries()) {
-		if (headerFilters.some((filter) => filter.test(key))) {
-			console.log(key, value);
-			headers[key] = value;
-		}
-	}
-	return headers;
 }
 
 export async function linkPreview(request: IRequest): Promise<Response> {

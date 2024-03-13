@@ -1,4 +1,4 @@
-export { isOriginAllowed, isRefererAllowed } from './headers';
+export { cloneHeader, isOriginAllowed, isRefererAllowed } from './headers';
 export { respOk, respNoContent, respBadRequest, respNotFound, respMethodNotAllowed } from './response';
 export { DomainRouterBuilder, domainRoutersHandler } from './router';
 export type { RouterHandler } from './types';

@@ -1,4 +1,4 @@
-import { fixUrl, isOriginAllowed, isRefererAllowed, log, respBadRequest, respNotFound } from '@affine/utils';
+import { cloneHeader, fixUrl, isOriginAllowed, isRefererAllowed, log, respBadRequest, respNotFound } from '@affine/utils';
 import type { IRequest } from 'itty-router';
 
 export async function imageProxy(request: IRequest) {
@@ -23,7 +23,7 @@ export async function imageProxy(request: IRequest) {
 
 	const imageRequest = new Request(targetURL.toString(), {
 		method: 'GET',
-		headers: request.headers,
+		headers: cloneHeader(request.headers),
 	});
 
 	const response = await fetch(imageRequest);

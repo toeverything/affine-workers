@@ -38,3 +38,15 @@ export function isRefererAllowed(referer: string, allowedOrigin: OriginRule | Or
 		return false;
 	}
 }
+
+const headerFilters = [/^Sec-/i, /^Accept/i, /^User-Agent$/i];
+
+export function cloneHeader(source: Headers) {
+	let headers: Record<string, string> = {};
+	for (const [key, value] of source.entries()) {
+		if (headerFilters.some((filter) => filter.test(key))) {
+			headers[key] = value;
+		}
+	}
+	return headers;
+}
