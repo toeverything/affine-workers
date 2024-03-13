@@ -13,6 +13,19 @@ function appendUrl(url: string | null, array?: string[]) {
 	}
 }
 
+const headerFilters = [/^Sec-/i, /^Accept/i, /^User-Agent$/i];
+
+function cloneHeader(source: Headers) {
+	let headers: Record<string, string> = {};
+	for (const [key, value] of source.entries()) {
+		if (headerFilters.some((filter) => filter.test(key))) {
+			console.log(key, value);
+			headers[key] = value;
+		}
+	}
+	return headers;
+}
+
 export async function linkPreview(request: IRequest): Promise<Response> {
 	const origin = request.headers.get('Origin');
 	const referer = request.headers.get('Referer');
@@ -41,6 +54,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 
 	try {
 		const response: Response = await fetch(targetURL, {
+			headers: cloneHeader(request.headers),
 			cf: {
 				cacheTtl: 43200,
 				cacheEverything: true,
