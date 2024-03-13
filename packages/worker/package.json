@@ -8,8 +8,7 @@
 	"scripts": {
 		"deploy:dev": "wrangler deploy -c wrangler-dev.toml",
 		"deploy:prod": "wrangler deploy -c wrangler-prod.toml",
-		"dev": "wrangler dev",
-		"start": "wrangler dev"
+		"dev": "wrangler dev -c wrangler-prod.toml"
 	},
 	"devDependencies": {
 		"@affine/image-proxy": "workspace:*",

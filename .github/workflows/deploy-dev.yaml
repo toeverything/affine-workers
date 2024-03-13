@@ -1,18 +1,7 @@
 name: Deploy to Development
 
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - '.vscode'
-      - '**.md'
-  pull_request:
-    branches:
-      - master
-    paths-ignore:
-      - '.vscode'
-      - '**.md'
+  workflow_dispatch:
 
 jobs:
   deploy:
