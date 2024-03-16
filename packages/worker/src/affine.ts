@@ -1,9 +1,7 @@
 import { imageProxy } from '@affine/image-proxy';
 import { linkPreview, linkPreviewOption } from '@affine/link-preview';
-import { respMethodNotAllowed, type RouterHandler } from '@affine/utils';
+import { respMethodNotAllowed, type Env, type RouterHandler } from '@affine/utils';
 import { Router } from 'itty-router';
-
-import type { Env } from './types';
 
 export function AFFiNEWorker(): RouterHandler<Env> {
 	const router = Router();

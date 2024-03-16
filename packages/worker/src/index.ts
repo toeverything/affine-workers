@@ -1,7 +1,6 @@
-import { DomainRouterBuilder, domainRoutersHandler } from '@affine/utils';
+import { DomainRouterBuilder, domainRoutersHandler, type Env } from '@affine/utils';
 
 import { AFFiNEWorker } from './affine.js';
-import type { Env } from './types.js';
 
 const WORKER_DOMAIN = 'affine-worker.toeverything.workers.dev';
 
