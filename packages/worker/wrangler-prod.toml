@@ -3,3 +3,6 @@ main = "src/index.ts"
 compatibility_date = "2023-11-21"
 workers_dev = false
 minify = true
+
+[limits]
+cpu_ms = 500
