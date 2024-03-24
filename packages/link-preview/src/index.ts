@@ -92,7 +92,7 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 				})
 				.on('link', {
 					element(element) {
-						if (element.getAttribute('rel') === 'icon') {
+						if (element.getAttribute('rel')?.toLowerCase().includes('icon')) {
 							appendUrl(element.getAttribute('href'), res.favicons);
 						}
 					},
