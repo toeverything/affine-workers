@@ -26,7 +26,16 @@ export async function imageProxy(request: IRequest) {
 		headers: cloneHeader(request.headers),
 	});
 
-	const response = await fetch(imageRequest);
+	const accept = request.headers.get('accept');
+	const response = await fetch(imageRequest, {
+		cf: {
+			image: {
+				fit: 'scale-down',
+				width: 1280,
+				format: accept && /image\/avif/.test(accept) ? 'avif' : 'webp',
+			},
+		},
+	});
 	const modifiedResponse = new Response(response.body);
 	modifiedResponse.headers.set('Access-Control-Allow-Origin', request.headers.get('Origin') ?? 'null');
 	modifiedResponse.headers.set('Vary', 'Origin');

@@ -13,6 +13,14 @@ function appendUrl(url: string | null, array?: string[]) {
 	}
 }
 
+async function reduceUrls(baseUrl: string, urls?: string[]) {
+	if (urls && urls.length > 0) {
+		const imageProxy = imageProxyBuilder(baseUrl);
+		const newUrls = await Promise.all(urls.map(imageProxy));
+		return newUrls.filter((x): x is string => !!x);
+	}
+}
+
 export async function linkPreview(request: IRequest): Promise<Response> {
 	const origin = request.headers.get('Origin');
 	const referer = request.headers.get('Referer');
@@ -117,13 +125,27 @@ export async function linkPreview(request: IRequest): Promise<Response> {
 
 			await rewriter.transform(response).text();
 
-			if (res.images && res.images.length > 0) {
-				const imageProxy = imageProxyBuilder(request.url);
-				const images = await Promise.all(res.images.map(imageProxy));
-				res.images = images.filter((x): x is string => !!x);
-			}
+			res.images = await reduceUrls(request.url, res.images);
 
 			log('Processed response with HTMLRewriter', 'INFO', { origin, url: response.url });
+		}
+
+		// fix favicon
+		{
+			// head default path of favicon
+			const faviconUrl = new URL('/favicon.ico', response.url);
+			const faviconResponse = await fetch(faviconUrl, {
+				method: 'HEAD',
+				cf: {
+					cacheTtl: 43200,
+					cacheEverything: true,
+				},
+			});
+			if (faviconResponse.ok) {
+				appendUrl(faviconUrl.toString(), res.favicons);
+			}
+
+			res.favicons = await reduceUrls(request.url, res.favicons);
 		}
 
 		const json = JSON.stringify(res);
