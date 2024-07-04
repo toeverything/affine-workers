@@ -10,7 +10,7 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         id: pnpm-install
       - name: Use Node.js LTS

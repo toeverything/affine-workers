@@ -39,7 +39,7 @@ export function isRefererAllowed(referer: string, allowedOrigin: OriginRule | Or
 	}
 }
 
-const headerFilters = [/^Sec-/i, /^Accept/i, /^User-Agent$/i];
+const headerFilters = [/^Sec-/i, /^Accept/i, /^User-Agent$/i, /^Content-Type$/i, /^Content-Disposition$/i];
 
 export function cloneHeader(source: Headers) {
 	let headers: Record<string, string> = {};
