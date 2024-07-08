@@ -40,5 +40,9 @@ export async function imageProxy(request: IRequest) {
 	modifiedResponse.headers.set('Access-Control-Allow-Origin', request.headers.get('Origin') ?? 'null');
 	modifiedResponse.headers.set('Vary', 'Origin');
 	modifiedResponse.headers.set('Access-Control-Allow-Methods', 'GET');
+	const contentType = response.headers.get('Content-Type');
+	contentType && modifiedResponse.headers.set('Content-Type', contentType);
+	const contentDisposition = response.headers.get('Content-Disposition');
+	contentDisposition && modifiedResponse.headers.set('Content-Disposition', contentDisposition);
 	return modifiedResponse;
 }
