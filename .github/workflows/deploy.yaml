@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -7,7 +7,6 @@ jobs:
   deploy:
     name: Deploy Workers
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -35,8 +34,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Deploy to production
-        run: pnpm deploy:prod
+      - name: Deploy
+        run: pnpm run deploy
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
