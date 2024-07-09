@@ -24,6 +24,7 @@ export function respOk(
 	body: string | null,
 	options: {
 		allowOrigin?: string;
+		headers?: Record<string, string>;
 	} = {},
 ) {
 	const headers = new Headers();
@@ -31,6 +32,12 @@ export function respOk(
 	if (options.allowOrigin) {
 		headers.set('Access-Control-Allow-Origin', options.allowOrigin);
 	}
+	if (options.headers) {
+		for (const [key, value] of Object.entries(options.headers)) {
+			headers.set(key, value);
+		}
+	}
+
 	return new Response(body, {
 		headers,
 		status: 200,
