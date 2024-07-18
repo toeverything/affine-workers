@@ -1,23 +1,23 @@
 {
-	"name": "@affine/worker",
-	"version": "0.0.1",
-	"author": "DarkSky <darksky2048@gmail.com>",
-	"license": "MPL-2.0",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"deploy": "wrangler deploy -c wrangler.toml",
-		"dev": "wrangler dev -c wrangler-prod.toml"
-	},
-	"devDependencies": {
-		"@affine/image-proxy": "workspace:*",
-		"@affine/link-preview": "workspace:*",
-		"@affine/utils": "workspace:*",
-		"@cloudflare/workers-types": "^4.20231218.0",
-		"@types/node": "^20.10.5",
-		"itty-router": "4.0.25",
-		"tldts": "^6.1.1",
-		"typescript": "^5.3.3",
-		"wrangler": "^3.22.1"
-	}
+  "name": "@affine/worker",
+  "version": "0.0.1",
+  "author": "DarkSky <darksky2048@gmail.com>",
+  "license": "MPL-2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy -c wrangler.toml",
+    "dev": "wrangler dev -c wrangler-prod.toml"
+  },
+  "devDependencies": {
+    "@affine/image-proxy": "workspace:*",
+    "@affine/link-preview": "workspace:*",
+    "@affine/utils": "workspace:*",
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@types/node": "^20.10.5",
+    "itty-router": "4.0.25",
+    "tldts": "^6.1.1",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.22.1"
+  }
 }

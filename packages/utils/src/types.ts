@@ -3,5 +3,5 @@ export type HostHandlers<E> = Record<string, RouterHandler<E>>;
 export type DomainRouters<E> = Record<string, HostHandlers<E>>;
 
 export interface Env {
-	Database: D1Database;
+  Database: D1Database;
 }

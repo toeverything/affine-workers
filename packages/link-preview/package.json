@@ -1,16 +1,15 @@
 {
-	"name": "@affine/link-preview",
-	"version": "0.0.1",
-	"author": "Flrande <flrande.ch@gmail.com>",
-	"license": "MPL-2.0",
-	"main": "src/index.ts",
-	"type": "module",
-	"private": true,
-	"devDependencies": {
-		"@affine/utils": "workspace:*",
-		"@cloudflare/workers-types": "^4.20231218.0",
-		"@types/node": "^20.10.5",
-		"itty-router": "4.0.25",
-		"typescript": "^5.3.3"
-	}
+  "name": "@affine/link-preview",
+  "version": "0.0.1",
+  "author": "Flrande <flrande.ch@gmail.com>",
+  "license": "MPL-2.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@affine/utils": "workspace:*",
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  }
 }
