@@ -12,7 +12,7 @@
   "devDependencies": {
     "@affine/utils": "workspace:*",
     "@cloudflare/workers-types": "^4.20231218.0",
-    "@oxc-node/core": "^0.0.10",
+    "@oxc-node/core": "^0.0.14",
     "@types/node": "^20.10.5",
     "tldts": "^6.1.1",
     "typescript": "^5.3.3"
