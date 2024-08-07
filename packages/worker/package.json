@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "deploy": "wrangler deploy -c wrangler.toml",
-    "dev": "wrangler dev -c wrangler-prod.toml"
+    "dev": "wrangler dev -c wrangler.toml"
   },
   "devDependencies": {
     "@affine/image-proxy": "workspace:*",
@@ -15,9 +15,9 @@
     "@affine/utils": "workspace:*",
     "@cloudflare/workers-types": "^4.20231218.0",
     "@types/node": "^20.10.5",
-    "itty-router": "4.2.2",
-    "tldts": "^6.1.1",
-    "typescript": "^5.3.3",
+    "itty-router": "^4.2.2",
+    "tldts": "^6.1.38",
+    "typescript": "^5.5.4",
     "wrangler": "^3.22.1"
   }
 }
