@@ -105,8 +105,8 @@ importers:
         specifier: ^20.10.5
         version: 20.14.13
       itty-router:
-        specifier: ^4.2.2
-        version: 4.2.2
+        specifier: ^5.0.0
+        version: 5.0.17
       tldts:
         specifier: ^6.1.38
         version: 6.1.38
@@ -570,8 +570,8 @@ packages:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
 
-  itty-router@4.2.2:
-    resolution: {integrity: sha512-KegPW0l9SNPadProoFT07AB84uOqLUwzlXQ7HsqkS31WUrxkjdhcemRpTDUuetbMJ89uBtWeQSVoiEmUAu31uw==}
+  itty-router@5.0.17:
+    resolution: {integrity: sha512-ZHnPI0OOyTTLuNp2FdciejYaK4Wl3ZV3O0yEm8njOGggh/k/ek3BL7X2I5YsCOfc5vLhIJgj3Z4pUtLs6k9Ucg==}
 
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -1145,7 +1145,7 @@ snapshots:
 
   is-number@7.0.0: {}
 
-  itty-router@4.2.2: {}
+  itty-router@5.0.17: {}
 
   magic-string@0.25.9:
     dependencies:
