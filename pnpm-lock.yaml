@@ -439,9 +439,6 @@ packages:
   '@types/node@20.16.5':
     resolution: {integrity: sha512-VwYCweNo3ERajwy0IUlqqcyZ8/A7Zwa9ZP3MnENWcB11AejO+tLy3pu850goUW2FC/IJMdZUfKpX/yxL1gymCA==}
 
-  '@types/node@22.5.4':
-    resolution: {integrity: sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==}
-
   acorn-walk@8.3.4:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
@@ -504,8 +501,8 @@ packages:
   defu@6.1.4:
     resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
 
-  dset@3.1.3:
-    resolution: {integrity: sha512-20TuZZHCEZ2O71q9/+8BwKwZ0QtD9D8ObhrihJPr+vLLYlSuAU3/zL4cSlgbfeoGHTjCSJBa7NGcrF9/Bx/WJQ==}
+  dset@3.1.4:
+    resolution: {integrity: sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA==}
     engines: {node: '>=4'}
 
   esbuild@0.17.19:
@@ -803,7 +800,7 @@ snapshots:
   '@customerio/cdp-analytics-core@0.2.0':
     dependencies:
       '@lukeed/uuid': 2.0.1
-      dset: 3.1.3
+      dset: 3.1.4
       tslib: 2.7.0
 
   '@customerio/cdp-analytics-node@0.2.0':
@@ -1009,13 +1006,9 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 22.5.4
+      '@types/node': 20.16.5
 
   '@types/node@20.16.5':
-    dependencies:
-      undici-types: 6.19.8
-
-  '@types/node@22.5.4':
     dependencies:
       undici-types: 6.19.8
 
@@ -1080,7 +1073,7 @@ snapshots:
 
   defu@6.1.4: {}
 
-  dset@3.1.3: {}
+  dset@3.1.4: {}
 
   esbuild@0.17.19:
     optionalDependencies:
