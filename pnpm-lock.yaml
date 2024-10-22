@@ -37,7 +37,7 @@ importers:
         version: 20.16.14
       tldts:
         specifier: ^6.1.38
-        version: 6.1.52
+        version: 6.1.53
       typescript:
         specifier: ^5.5.4
         version: 5.6.3
@@ -82,7 +82,7 @@ importers:
         version: 20.16.14
       tldts:
         specifier: ^6.1.38
-        version: 6.1.52
+        version: 6.1.53
       typescript:
         specifier: ^5.5.4
         version: 5.6.3
@@ -109,7 +109,7 @@ importers:
         version: 5.0.18
       tldts:
         specifier: ^6.1.38
-        version: 6.1.52
+        version: 6.1.53
       typescript:
         specifier: ^5.5.4
         version: 5.6.3
@@ -681,11 +681,11 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  tldts-core@6.1.52:
-    resolution: {integrity: sha512-j4OxQI5rc1Ve/4m/9o2WhWSC4jGc4uVbCINdOEJRAraCi0YqTqgMcxUx7DbmuP0G3PCixoof/RZB0Q5Kh9tagw==}
+  tldts-core@6.1.53:
+    resolution: {integrity: sha512-IleS872aGdTB/UtocD2dSZBnQi/nqMIZxxezVgfcKKjw6+G2hJGzFw9buIDJO2MVJyEJe3rCAdyMTl2yvGMMrQ==}
 
-  tldts@6.1.52:
-    resolution: {integrity: sha512-fgrDJXDjbAverY6XnIt0lNfv8A0cf7maTEaZxNykLGsLG7XP+5xhjBTrt/ieAsFjAlZ+G5nmXomLcZDkxXnDzw==}
+  tldts@6.1.53:
+    resolution: {integrity: sha512-4uCStuOjPFaY2/LUjTSwdnJTC82W/gvSFL6FoTC9ehNOHboA9cyO3wX1erh2yGofVls37OdXr5sQLEfL5hS1TA==}
     hasBin: true
 
   to-regex-range@5.0.1:
@@ -1242,11 +1242,11 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  tldts-core@6.1.52: {}
+  tldts-core@6.1.53: {}
 
-  tldts@6.1.52:
+  tldts@6.1.53:
     dependencies:
-      tldts-core: 6.1.52
+      tldts-core: 6.1.53
 
   to-regex-range@5.0.1:
     dependencies:
