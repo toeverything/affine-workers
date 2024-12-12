@@ -33,8 +33,8 @@ importers:
         specifier: ^0.0.15
         version: 0.0.15
       '@types/node':
-        specifier: ^20.10.5
-        version: 20.17.10
+        specifier: ^22.0.0
+        version: 22.10.2
       tldts:
         specifier: ^6.1.38
         version: 6.1.67
@@ -51,8 +51,8 @@ importers:
         specifier: ^4.20231218.0
         version: 4.20241205.0
       '@types/node':
-        specifier: ^20.10.5
-        version: 20.17.10
+        specifier: ^22.0.0
+        version: 22.10.2
       typescript:
         specifier: ^5.5.4
         version: 5.7.2
@@ -78,8 +78,8 @@ importers:
         specifier: ^4.20231218.0
         version: 4.20241205.0
       '@types/node':
-        specifier: ^20.10.5
-        version: 20.17.10
+        specifier: ^22.0.0
+        version: 22.10.2
       tldts:
         specifier: ^6.1.38
         version: 6.1.67
@@ -102,8 +102,8 @@ importers:
         specifier: ^4.20231218.0
         version: 4.20241205.0
       '@types/node':
-        specifier: ^20.10.5
-        version: 20.17.10
+        specifier: ^22.0.0
+        version: 22.10.2
       itty-router:
         specifier: ^5.0.0
         version: 5.0.18
@@ -436,9 +436,6 @@ packages:
   '@types/node-forge@1.3.11':
     resolution: {integrity: sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ==}
 
-  '@types/node@20.17.10':
-    resolution: {integrity: sha512-/jrvh5h6NXhEauFFexRin69nA0uHJ5gwk4iDivp/DeoEua3uwCUto6PC86IpRITBOs4+6i2I56K5x5b6WYGXHA==}
-
   '@types/node@22.10.2':
     resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
 
@@ -665,9 +662,6 @@ packages:
 
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
-
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
@@ -968,10 +962,6 @@ snapshots:
     dependencies:
       '@types/node': 22.10.2
 
-  '@types/node@20.17.10':
-    dependencies:
-      undici-types: 6.19.8
-
   '@types/node@22.10.2':
     dependencies:
       undici-types: 6.20.0
@@ -1181,8 +1171,6 @@ snapshots:
   typescript@5.7.2: {}
 
   ufo@1.5.4: {}
-
-  undici-types@6.19.8: {}
 
   undici-types@6.20.0: {}
 
