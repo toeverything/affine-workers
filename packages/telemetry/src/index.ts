@@ -1,5 +1,25 @@
 import { Analytics } from '@customerio/cdp-analytics-node';
 
+function checkProperties(properties: any) {
+  if (properties && typeof properties === 'object') {
+    if (!properties.$user_id) {
+      return false;
+    }
+    if (properties.serverId && properties.serverId !== 'affine-cloud') {
+      return false;
+    }
+    if (
+      properties.$current_url &&
+      !properties.$current_url.startsWith('file://./') &&
+      !new URL(properties.$current_url).host.endsWith('affine.pro')
+    ) {
+      return false;
+    }
+    return true;
+  }
+  return false;
+}
+
 export default {
   async fetch(request, env: Env): Promise<Response> {
     // https://github.com/mixpanel/tracking-proxy/blob/master/nginx.conf
@@ -28,7 +48,9 @@ export default {
       const payload = requestData[1];
       if (payload) {
         const events = JSON.parse(atob(payload));
-        const eventsToSend = events.filter((payload: any) => !payload.event?.includes?.('page_view') && payload.properties?.$user_id);
+        const eventsToSend = events.filter(
+          (payload: any) => !payload.event?.includes?.('page_view') && checkProperties(payload.properties),
+        );
         if (eventsToSend.length) {
           const sendQueue: Promise<void>[] = [];
           const analytics = new Analytics({
