@@ -17,6 +17,6 @@ export function AFFiNEWorker(): RouterHandler<Env> {
   router.all('*', () => respMethodNotAllowed());
 
   return (request: Request, env: Env, ctx: ExecutionContext) => {
-    return router.handle(request, env, ctx);
+    return router.fetch(request, env, ctx);
   };
 }
