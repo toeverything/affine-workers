@@ -15,10 +15,10 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20231218.0",
-    "prettier": "3.4.2",
+    "prettier": "3.5.0",
     "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.5",
   "prettier": {
     "printWidth": 140,
     "singleQuote": true,
