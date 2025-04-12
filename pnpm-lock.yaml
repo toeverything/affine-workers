@@ -36,8 +36,8 @@ importers:
         specifier: ^22.0.0
         version: 22.13.10
       tldts:
-        specifier: ^6.1.38
-        version: 6.1.83
+        specifier: ^7.0.0
+        version: 7.0.0
       typescript:
         specifier: ^5.5.4
         version: 5.8.2
@@ -81,8 +81,8 @@ importers:
         specifier: ^22.0.0
         version: 22.13.10
       tldts:
-        specifier: ^6.1.38
-        version: 6.1.83
+        specifier: ^7.0.0
+        version: 7.0.0
       typescript:
         specifier: ^5.5.4
         version: 5.8.2
@@ -108,8 +108,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.18
       tldts:
-        specifier: ^6.1.38
-        version: 6.1.83
+        specifier: ^7.0.0
+        version: 7.0.0
       typescript:
         specifier: ^5.5.4
         version: 5.8.2
@@ -718,11 +718,11 @@ packages:
     resolution: {integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==}
     engines: {node: '>=4', npm: '>=6'}
 
-  tldts-core@6.1.83:
-    resolution: {integrity: sha512-I2wb9OJc6rXyh9d4aInhSNWChNI+ra6qDnFEGEwe9OoA68lE4Temw29bOkf1Uvwt8VZS079t1BFZdXVBmmB4dw==}
+  tldts-core@7.0.0:
+    resolution: {integrity: sha512-ZDylm+F2UZYtJp3zZj0PRSBTJ1aCQ7SmPr0tcq9UDMPEUfRd1qRBh/n6HL1KxQuV0gmLmSrRgiapMoDs0KllCA==}
 
-  tldts@6.1.83:
-    resolution: {integrity: sha512-FHxxNJJ0WNsEBPHyC1oesQb3rRoxpuho/z2g3zIIAhw1WHJeQsUzK1jYK8TI1/iClaa4fS3Z2TCA9mtxXsENSg==}
+  tldts@7.0.0:
+    resolution: {integrity: sha512-f1DBZcYLK+YVRuiKKSuBS4QbZB5J+gf376pB/4CtJFxYQ3ivAWhQzgBolAmcUH0+zLJybXi2B9lcqHYnumT3yg==}
     hasBin: true
 
   tr46@0.0.3:
@@ -767,6 +767,7 @@ packages:
   wrangler@3.114.0:
     resolution: {integrity: sha512-cY0HxgU5yuc24tE1Y4KD2n9UzYYEx+9lSL7p/Sqj18SgDfwyiMPY/FryXQAPYLuD/S+dxArRQyeEkFSokIr75Q==}
     engines: {node: '>=16.17.0'}
+    deprecated: Deployments with nodejs_compat are broken. Please downgrade to 3.112.0
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20250224.0
@@ -1308,11 +1309,11 @@ snapshots:
 
   stoppable@1.1.0: {}
 
-  tldts-core@6.1.83: {}
+  tldts-core@7.0.0: {}
 
-  tldts@6.1.83:
+  tldts@7.0.0:
     dependencies:
-      tldts-core: 6.1.83
+      tldts-core: 7.0.0
 
   tr46@0.0.3: {}
 
