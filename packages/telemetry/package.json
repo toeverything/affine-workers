@@ -12,6 +12,6 @@
     "@cloudflare/workers-types": "^4.20231218.0",
     "@customerio/cdp-analytics-node": "^0.3.0",
     "typescript": "^5.5.2",
-    "wrangler": "^3.60.3"
+    "wrangler": "^4.0.0"
   }
 }
