@@ -13,7 +13,7 @@ importers:
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.20231218.0
-        version: 4.20250522.0
+        version: 4.20250531.0
       prettier:
         specifier: 3.5.3
         version: 3.5.3
@@ -165,8 +165,8 @@ packages:
   '@cloudflare/workers-types@4.20250303.0':
     resolution: {integrity: sha512-O7F7nRT4bbmwHf3gkRBLfJ7R6vHIJ/oZzWdby6obOiw2yavUfp/AIwS7aO2POu5Cv8+h3TXS3oHs3kKCZLraUA==}
 
-  '@cloudflare/workers-types@4.20250522.0':
-    resolution: {integrity: sha512-9RIffHobc35JWeddzBguGgPa4wLDr5x5F94+0/qy7LiV6pTBQ/M5qGEN9VA16IDT3EUpYI0WKh6VpcmeVEtVtw==}
+  '@cloudflare/workers-types@4.20250531.0':
+    resolution: {integrity: sha512-iVcWk78z1qNnEWMOUkXvfURz407m/l/xjRKyFW3XM39t7xGgF8GjARMJs/pT93tLPGvrZ7qlj9j92eIhdsexfg==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -813,7 +813,7 @@ snapshots:
 
   '@cloudflare/workers-types@4.20250303.0': {}
 
-  '@cloudflare/workers-types@4.20250522.0': {}
+  '@cloudflare/workers-types@4.20250531.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
