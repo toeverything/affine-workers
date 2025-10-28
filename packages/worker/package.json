@@ -14,7 +14,7 @@
     "@affine/link-preview": "workspace:*",
     "@affine/utils": "workspace:*",
     "@cloudflare/workers-types": "^4.20231218.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.0",
     "itty-router": "^5.0.0",
     "tldts": "^6.1.38",
     "typescript": "^5.5.4",
