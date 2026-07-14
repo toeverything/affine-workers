@@ -13,7 +13,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
       - name: Use Node.js LTS
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
