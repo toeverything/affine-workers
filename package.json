@@ -14,7 +14,7 @@
     "test": "pnpm test --recursive"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20231218.0",
+    "@cloudflare/workers-types": "^5.0.0",
     "prettier": "3.5.3",
     "typescript": "^6.0.0"
   },
