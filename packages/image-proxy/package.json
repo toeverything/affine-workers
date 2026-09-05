@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@affine/utils": "workspace:*",
-    "@cloudflare/workers-types": "^4.20231218.0",
+    "@cloudflare/workers-types": "^5.0.0",
     "@oxc-node/core": "^0.0.20",
     "@types/node": "^24.0.0",
     "tldts": "^7.0.0",
