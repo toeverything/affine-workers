@@ -18,7 +18,7 @@
     "prettier": "3.5.3",
     "typescript": "^6.0.0"
   },
-  "packageManager": "pnpm@9.15.7",
+  "packageManager": "pnpm@12.4.1",
   "prettier": {
     "printWidth": 140,
     "singleQuote": true,
